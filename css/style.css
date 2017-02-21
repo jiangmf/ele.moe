@@ -1,0 +1,427 @@
+/*
+    Page Initialization
+*/
+
+/*html {*/
+#background-image{
+    background: url(../img/bg.jpg) -25px -50px;
+    position:fixed ;
+    top:0;
+    width:100%;
+    z-index:0;
+    height:100%;
+    /*background-size: calc(100% + 50px); */
+    transform: scale(1.2,1.2);
+    -webkit-transform: scale(1.2,1.2);
+    -ms-transform: scale(1.2,1.2);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Open Sans";
+    color: #444;
+    font-size: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+h1, h2, h3, h4, h5, p, span, div, section {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    cursor: hand; cursor: pointer;
+}
+
+a:hover {
+    text-shadow: 0px 0px 3px rgba(255,255,255, 1);
+}
+
+hr{
+    border: 0;
+    height: 0;
+    border-top: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+    margin: 5px 0;
+}
+::-webkit-scrollbar              { width: 4px; background-color: transparent;}
+::-webkit-scrollbar-button       { display:none; }
+::-webkit-scrollbar-track        { background-color: transparent; }
+::-webkit-scrollbar-track-piece  { background-color: transparent; }
+::-webkit-scrollbar-thumb        { background-color: rgba(66, 66, 66, 0.25); border-radius: 2px;}
+::-webkit-scrollbar-corner       { background-color: transparent; }
+::-webkit-resizer                { background-color: transparent; }
+
+/*
+    Util
+*/
+
+.hidden {
+    display: none !important;
+}
+
+.no-decoration {
+    text-decoration: none !important;
+}
+
+.tag {
+    font-size: 14px;
+    padding: 2px 5px;
+    background-color: rgba(0,0,0,0.3);
+    display: inline-block;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+     -khtml-user-select: none; /* Konqueror */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+
+/*
+    Page Structure
+*/
+
+#content,
+#page {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    margin: 0 22.5% 0 22.5%;
+    width: 55%;
+    background-color: rgba(240,240,240,0.85);
+    /*height: auto;*/
+    /*min-height: 100%;*/
+    height: 100%;
+    position: relative;
+    overflow-y: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+#content.left {
+    margin: 0 50% 0 0;
+    width: 50%;
+}
+
+#content > *,
+#page > *{
+    display: block;
+    margin: 0 auto;
+}
+
+#page {
+    width: 50%;
+    margin-left: 0;
+}
+
+#page.about {
+    background-color: rgba(33,150,243,0.85)
+}
+
+#page.resume {
+    background-color: rgba(0,188,212,0.85)
+}
+
+#page.projects {
+    background-color: rgba(76,175,80,0.85)
+}
+
+#page.gallery {
+    background-color: rgba(139,195,74,0.85)
+}
+
+#page.right {
+    width: 50%;
+    margin-left: -50%;
+}
+
+/*
+    Page Objects
+*/
+
+#content div.profile-img {
+    margin-top: 50px;
+
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    background: url(../img/profile2.jpg) no-repeat;
+    box-shadow: 0 0 8px rgba(68,68,68, 0.85);
+    -webkit-box-shadow: 0 0 8px rgba(68,68,68, 0.85);
+    -moz-box-shadow: 0 0 8px rgba(68,68,68, 0.85);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#content div.name,
+h1, h2, h3, h4, h5 {
+    font-family: "Josefin Sans";
+    font-weight: 200;
+    
+}
+
+    #content div.name.lg{
+        margin-top: 25px;
+        font-size: 60px;
+        
+    }
+
+    #content div.name.sm{
+        font-size: 30px;
+        margin-top: -5px;
+    }
+
+#content p.quote {
+    margin-top: 25px;
+    font-style: italic;
+}
+
+    #content p:before {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        float: none;
+        padding: 18px 0 0 0;
+        border-top: 1px dashed #444;
+        width: 140px;
+    }
+
+    #content p:after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        float: none;
+        padding: 0 0 18px 0;
+        border-bottom: 1px dashed #444;
+        width: 140px;
+    }
+
+#content div.buttons {
+    margin-top: 50px;
+    width: 300px;
+}
+
+    div.button {
+        width: 300px;
+        height: 50px;
+        content: "";
+        border: 1px solid #aaa;
+        margin: 0 0 20px 0;
+        line-height: 50px;
+        position: relative;
+        overflow:hidden;
+        cursor: pointer;
+        cursor: hand;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+        div.button.hover,
+        div.button.selected{
+            font-size: 20px;
+            font-weight: 600;
+            border-color: #444;
+            border-width: 2px;
+        }
+
+        div.button.hover.about,
+        div.button.selected.about {
+            color: rgba(33,150,243 ,1);
+            border-color: rgba(33,150,243 ,1);
+        }
+
+        div.button.hover.resume,
+        div.button.selected.resume {
+            color: rgba(0,188,212 ,1);
+            border-color: rgba(0,188,212 ,1);
+        }
+
+        div.button.hover.projects,
+        div.button.selected.projects {
+            color: rgba(76,175,80 ,1);
+            border-color: rgba(76,175,80 ,1);
+        }
+
+        div.button.hover.gallery,
+        div.button.selected.gallery {
+            color: rgba(139,195,74 ,1);
+            border-color: rgba(139,195,74 ,1);
+        }
+
+    div.button i{
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        
+        position: absolute;
+        left:-15px;
+        font-size: 50px;
+        color: #ccc;
+    }
+
+        div.button.hover i,
+        div.button.selected i{
+            transform: translateX(25px) scale(1.1,1.1) rotate(10deg);
+            -webkit-transform: translateX(25px) scale(1.1,1.1) rotate(10deg);
+            color: inherit;
+        }
+
+#content div.icons {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 300px;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+}
+
+    #content div.icons a{
+        text-align: center;
+        color:#444;
+        -webkit-transition: all 0.25s ease;
+        -moz-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+    }
+
+        #content div.icons a:hover{
+            color: #fff;
+        }
+
+#page{
+    white-space: normal;
+    padding: 25px;
+    color: white;
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+#page h1{
+    font-size: 40px;
+    padding: 15px 0;
+    display: block;
+}
+
+#page h3{
+    font-size: 25px;
+    padding: 5px 0;
+    display: block;
+}
+
+#page .project {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background-color: rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+#page .project > a{
+    width: 25%;
+    padding: 10px;
+}
+
+#page .project > a > img{
+    width:100%;
+}
+
+#page .project > .project-description{
+    width: 75%;
+}
+
+#page .project > .project-description > p,
+#page .project > .project-description > .tags{
+    padding-top: 5px;
+}
+
+#page .about-me > p{
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#page .resume{
+    text-align: left;
+}
+
+#page .gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#page .gallery > .gallery-item{
+    background-color: rgba(255,255,255,0.7);
+    width: 250px;
+    margin: 10px;
+    font-size: 0;
+    padding: 10px;
+}
+
+#page .gallery > .gallery-item img{
+    width:100%;
+}
+
+
+
+/*
+    Mobile
+*/
+#back{
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.7);
+    padding: 5px 20px;
+}
+
+@media screen and (max-width: 899px){
+    #content {
+        width: 100%;
+        margin: 0;
+    }
+
+    #content.left {
+        width:0%;
+        display:inline-block;
+    }
+    #page.right {
+        width:100%;
+        display:inline-block;
+    }
+
+    #page.right + #back{
+        display: inline-block;
+    }
+
+}
